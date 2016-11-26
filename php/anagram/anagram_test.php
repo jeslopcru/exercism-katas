@@ -11,7 +11,6 @@ class AnagramTest extends PHPUnit_Framework_TestCase
 
     public function testDetectsSimpleAnagram()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['tan'], detectAnagrams('ant', ['tan', 'stand', 'at']));
     }
 
