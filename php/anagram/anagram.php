@@ -5,18 +5,19 @@ function detectAnagrams($word, array $possibles)
     $anagrams = [];
 
     foreach ($possibles as $possible) {
-        $anagramLetters = str_split(mb_strtolower($word));
-        $possibleLetters = str_split(mb_strtolower($possible));
+        $anagramLetters = _convertToCharacters($word);
+        $matchLetters = _convertToCharacters($possible);
 
-        if (count($anagramLetters) === count($possibleLetters)) {
-            foreach ($possibleLetters as $character) {
+        if (_containsSameNumberOfCharacters($anagramLetters, $matchLetters)) {
+
+            foreach ($matchLetters as $character) {
+
                 $index = array_search($character, $anagramLetters);
-
                 if ($index !== false) {
                     unset($anagramLetters[$index]);
                 }
 
-                if (empty($anagramLetters) && mb_strtolower($word) !== mb_strtolower($possible)) {
+                if (_isAnagram($word, $anagramLetters, $possible)) {
                     $anagrams[] = $possible;
                 }
             }
@@ -24,4 +25,21 @@ function detectAnagrams($word, array $possibles)
     }
 
     return $anagrams;
+}
+
+function _isAnagram($word, $anagramLetters, $possible)
+{
+    $_areDifferentWords = mb_strtolower($word) !== mb_strtolower($possible);
+    return empty($anagramLetters) && $_areDifferentWords;
+}
+
+
+function _containsSameNumberOfCharacters($anagramLetters, $possibleLetters)
+{
+    return count($anagramLetters) === count($possibleLetters);
+}
+
+function _convertToCharacters($word)
+{
+    return str_split(mb_strtolower($word));
 }
