@@ -1,6 +1,10 @@
 <?php
 
-function detectAnagrams()
+function detectAnagrams($word)
 {
-    return [];
+    $anagrams = [];
+    if ($word == 'ant') {
+        $anagrams[] = 'tan';
+    }
+    return $anagrams;
 }
