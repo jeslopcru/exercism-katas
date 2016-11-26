@@ -49,73 +49,61 @@ class AnagramTest extends PHPUnit_Framework_TestCase
 
     public function testDoesNotDetectNonAnagramsWithIdenticalChecksum()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('mass', ['last']));
     }
 
     public function testDetectsAnagramsCaseInsensitively()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['Carthorse'], detectAnagrams('Orchestra', ['cashregister', 'Carthorse', 'radishes']));
     }
 
     public function testDetectsAnagramsUsingCaseInsensitiveSubject()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['carthorse'], detectAnagrams('Orchestra', ['cashregister', 'carthorse', 'radishes']));
     }
 
     public function testDetectsAnagramsUsingCaseInsensitvePossibleMatches()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['Carthorse'], detectAnagrams('orchestra', ['cashregister', 'Carthorse', 'radishes']));
     }
 
     public function testDoesNotDetectAWordAsItsOwnAnagram()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('banana', ['Banana']));
     }
 
     public function testDoesNotDetectAAnagramIfTheOriginalWordIsRepeated()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('go', ['go Go GO']));
     }
 
     public function testAnagramsMustUseAllLettersExactlyOnce()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('tapper', ['patter']));
     }
 
     public function testEliminatesAnagramsWithTheSameChecksum()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('mass', ['last']));
     }
 
     public function testDetectsUnicodeAnagrams()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['ΒΓΑ', 'γβα'], detectAnagrams('ΑΒΓ', ['ΒΓΑ', 'ΒΓΔ', 'γβα']));
     }
 
     public function testEliminatesMisleadingUnicodeAnagrams()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('ΑΒΓ', ['ABΓ']));
     }
 
     public function testCapitalWordIsNotOwnAnagram()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('BANANA', ['Banana']));
     }
 
     public function testAnagramsMustUseAllLettersExactlyOnce2()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('patter', ['tapper']));
     }
 }
