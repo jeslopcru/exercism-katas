@@ -5,8 +5,8 @@ function detectAnagrams($word, array $possibles)
     $anagrams = [];
 
     foreach ($possibles as $possible) {
-        $anagramLetters = str_split($word);
-        $possibleLetters = str_split($possible);
+        $anagramLetters = str_split(mb_strtolower($word));
+        $possibleLetters = str_split(mb_strtolower($possible));
 
         if (count($anagramLetters) === count($possibleLetters)) {
             foreach ($possibleLetters as $character) {
@@ -16,7 +16,7 @@ function detectAnagrams($word, array $possibles)
                     unset($anagramLetters[$index]);
                 }
 
-                if (empty($anagramLetters)) {
+                if (empty($anagramLetters) && mb_strtolower($word) !== mb_strtolower($possible)) {
                     $anagrams[] = $possible;
                 }
             }
