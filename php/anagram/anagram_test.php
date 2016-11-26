@@ -16,13 +16,11 @@ class AnagramTest extends PHPUnit_Framework_TestCase
 
     public function testDoesNotDetectFalsePositives()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('galea', ['eagle']));
     }
 
     public function testDetectsMultipleAnagrams()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['stream', 'maters'], detectAnagrams('master', ['stream', 'pigeon', 'maters']));
     }
 
