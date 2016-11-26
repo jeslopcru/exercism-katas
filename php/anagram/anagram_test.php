@@ -26,19 +26,16 @@ class AnagramTest extends PHPUnit_Framework_TestCase
 
     public function testDoesNotDetectAnagramSubsets()
     {
-        $this->markTestSkipped();
         $this->assertEquals([], detectAnagrams('good', ['dog', 'goody']));
     }
 
     public function testDetectsAnagram()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['inlets'], detectAnagrams('listen', ['enlists', 'google', 'inlets', 'banana']));
     }
 
     public function testDetectsMultipleAnagrams2()
     {
-        $this->markTestSkipped();
         $this->assertEquals(
             ['gallery', 'regally', 'largely'],
             detectAnagrams('allergy', ['gallery', 'ballerina', 'regally', 'clergy', 'largely', 'leading'])
@@ -47,7 +44,6 @@ class AnagramTest extends PHPUnit_Framework_TestCase
 
     public function testDoesNotDetectIdenticalWords()
     {
-        $this->markTestSkipped();
         $this->assertEquals(['cron'], detectAnagrams('corn', ['corn', 'dark', 'Corn', 'rank', 'CORN', 'cron', 'park']));
     }
 
